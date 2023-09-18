@@ -25,9 +25,9 @@ public class GenerarHistograma {
 
             if(resultats.containsKey(resultat)){ // busque la key equivalent al resultat de la suma dels daus
 
-                String asteriscosRes =  resultats.get(resultat).concat("*"); // si la trobe al string linkejat al valor trobat se li sume un asterisc
+                String asteriscosRes =  resultats.get(resultat).concat("*"); // si la troba al string linkejat al valor trobat se li suma un asterisc
 
-                resultats.put(resultat, asteriscosRes); // el put actualitze el valor del hashMap, a l esquerra va la variable resultat i a la dreta la cadena d asteriscos
+                resultats.put(resultat, asteriscosRes); // el put actualitzea el valor del hashMap, a l'esquerra va la variable resultat i a la dreta la cadena d'asteriscs
             }else{
                 resultats.put(resultat, "*");// el valor encara no ha sortit, per lo que li fica un asterisc
             }
