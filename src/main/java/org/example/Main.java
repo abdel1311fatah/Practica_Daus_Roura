@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int vegades = obtindreInt("Quantes vegades vols tirar els daus? ");
+        int vegades = obtindreInt("Quantes vegades vols tirar els daus? ");//Metode per a validar a la vegada que es printe
         GenerarHistograma generarHistograma = new GenerarHistograma();
 
         generarHistograma.tirar_daus(vegades);
 
-        for (Integer numero: generarHistograma.getResultats().keySet()) {
-            String key = numero.toString();
-            String value = generarHistograma.getResultats().get(numero).toString();
-            System.out.println(key + " " + value);
+        for (Integer numero: generarHistograma.getResultats().keySet()) { //amb el keyset pilles totes les claus del hashMap, llavors recorres el hasmap atraves de les keys
+            String key = numero.toString(); // agafe una key del hashmap
+            String value = generarHistograma.getResultats().get(numero).toString(); // aqui no esta agafant el numero, esta agafant el string linkejat al numero
+            System.out.println(key + " " + value); //printe els valors del hasmap, al ser una key integer i un valor string el numero s ha de pasar amb el tostring
         }
 
     }
