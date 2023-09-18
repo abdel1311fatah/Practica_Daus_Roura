@@ -8,8 +8,13 @@ public class Main {
         int vegades = obtindreInt("Quantes vegades vols tirar els daus? ");
         GenerarHistograma generarHistograma = new GenerarHistograma();
 
-        System.out.println(generarHistograma.tirar_daus(vegades));
+        generarHistograma.tirar_daus(vegades);
 
+        for (Integer numero: generarHistograma.getResultats().keySet()) {
+            String key = numero.toString();
+            String value = generarHistograma.getResultats().get(numero).toString();
+            System.out.println(key + " " + value);
+        }
 
     }
 

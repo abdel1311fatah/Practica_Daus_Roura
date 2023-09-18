@@ -1,38 +1,47 @@
 package org.example;
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class GenerarHistograma {
-    Random r1 = new Random();
-    Random r2 = new Random();
-    public int generar_dau1(){
 
-        int d1 = r1.nextInt(6) + 1;
+    private Dau dau1; // null
+    private Dau dau2;
 
-        return d1;
-
+    public HashMap<Integer, String> getResultats() {
+        return resultats;
     }
 
-    public int generar_dau2(){
+    private HashMap<Integer, String> resultats;
 
-        int d2 = r2.nextInt(6) + 1;
-
-        return d2;
-
+    GenerarHistograma(){
+        dau1 = new Dau("Dau 1", 0); //constructor per assignar nom i valor 0 per que si no pete
+        dau2 = new Dau("Dau 2",0);
+        resultats = new HashMap<Integer, String>();
     }
-    public String tirar_daus(int vegades){
 
-        String llista = null, asteriscos = null;
-        for (int i = 0; i<= vegades; i++) {
-            int resultat = generar_dau1() + generar_dau2();
-            llista = resultat + ": ";
-            for (int x = 0; x <= resultat; x++){
-                asteriscos += "*";
+    public void tirar_daus(int vegades){ // es va fent el numero un per 1
+
+        String llista = "";
+
+        int resultatOriginal = 0, c1 = 0;
+        for (int i = 0; i< vegades; i++) {
+            dau1.setValor(dau1.generar());
+            dau2.setValor(dau2.generar());
+            int resultat = dau1.getValor() + dau2.getValor();
+
+            if(resultats.containsKey(resultat)){
+                String asteriscosRes =  resultats.get(resultat) + "*";
+
+                resultats.put(resultat, asteriscosRes);
+            }else{
+                resultats.put(resultat, "*");
             }
-            llista += asteriscos;
         }
 
-        return llista;
     }
 
 }
