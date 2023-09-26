@@ -18,6 +18,7 @@ public class Main {
 
     }
 
+    //Metodes per a validar dades de teclat
     public String obtindreString(String text) {
         Scanner sc = new Scanner(System.in);
 
